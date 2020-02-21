@@ -2,17 +2,17 @@
 
 <form  method="POST" action="/issues/{{ issue._id }}?_method=PUT">
 
-    <div class="form">
+    <div class="form-group">
         <label for="description">Issue Description</label>
         <input type="text" id="description" name="description" value="{{ issue.description }}">
     </div>
 
-    <div class="form">
+    <div class="form-group">
         <label for="status">Issue Status</label>
         <input type="text" id="status" name="status" value="{{ issue.status }}">
     </div>
 
-    <div class="form">
+    <div class="form-group">
         <label for="priority">Issue Priority</label>
         <input type="text" id="priority" name="priority" value="{{ issue.priority }}">
     </div>
