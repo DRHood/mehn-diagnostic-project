@@ -15,8 +15,7 @@ issuesRouter.get('/', (req, res) => {
 
 // post new issue
 issuesRouter.post('/', (req, res) => {
- Issue.create(req.body).then(issues =>
-  {
+ Issue.create(req.body).then(issues => {
       res.redirect('/issues');
   });
 });
@@ -27,15 +26,15 @@ issuesRouter.get('/new', (req, res) => {
 });
 
 // get issue edit form
-issuesRouter.get('/:id/edit', (req, res) => {
-  Issue.findById(req.params.id).then((issue) => {
+issuesRouter.get('/:issueId/edit', (req, res) => {
+  Issue.findById(req.params.issueId).then((issue) => {
       res.render('issues/editIssueForm', {issue});
   });
 });
 
 // put issue edit
-issuesRouter.put('/:id', (req, res) => {
-  Issue.findByIdAndUpdate(req.params.id, req.body).then(() => {
+issuesRouter.put('/:issueId', (req, res) => {
+  Issue.findByIdAndUpdate(req.params.issueId, req.body).then(issue => {
     res.redirect('/issues');
   });
 });
@@ -48,11 +47,11 @@ issuesRouter.get('/:issueId', (req, res) => {
 });
 
 // delete issue
-issuesRouter.delete('/:id', (req, res) => {
-  Issue.findByIdAndRemove(req.params.id).then(() => {
-      res.redirect('/issues')
-  })
-})
+issuesRouter.delete('/:issueId', (req, res) => {
+  Issue.findByIdAndRemove(req.params.issueId).then(() => {
+      res.redirect('/issues');
+  });
+});
 
 // router export
 module.exports = issuesRouter;
