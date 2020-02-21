@@ -6,7 +6,7 @@ const issuesRouter = require('./controllers/issues.js');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
-app.use(express.static(__dirname+"/public"));
+app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'hbs');
 app.use('/issues', issuesRouter);
 

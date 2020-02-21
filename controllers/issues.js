@@ -15,7 +15,7 @@ issuesRouter.get('/', (req, res) => {
 
 // post new issue
 issuesRouter.post('/', (req, res) => {
- Issue.create(req.body).then(() =>
+ Issue.create(req.body).then(issues =>
   {
       res.redirect('/issues');
   });
@@ -41,8 +41,8 @@ issuesRouter.put('/:id', (req, res) => {
 });
 
 // get single issue
-issuesRouter.get('/:id', (req, res) => {
-  Issue.findById(req.params.id).then((issue) => {
+issuesRouter.get('/:issueId', (req, res) => {
+  Issue.findById(req.params.issueId).then(issue => {
       res.render('./issues/issue', {issue});
   });
 });
