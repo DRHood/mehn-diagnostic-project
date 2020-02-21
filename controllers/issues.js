@@ -1,12 +1,12 @@
 const express = require('express');
-const issueRouter = express.Router();
+const issuesRouter = express.Router();
 
 // import APIs
 const Issue = require('../models/Issue.js')
 
 // request handlers
 // get all issues
-issueRouter.get('/', (req, res) => {
+issuesRouter.get('/', (req, res) => {
   Issue.find().then(issues => {
     console.log(issues);
     res.render('issues/issues', { issues });
@@ -14,4 +14,4 @@ issueRouter.get('/', (req, res) => {
 });
 
 // router export
-module.exports = issueRouter;
+module.exports = issuesRouter;
